@@ -1,0 +1,183 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nama": "Administrator",
+      "email": "admin@tokobuku.com",
+      "password": "$2a$10$JWmeUq/I63OFDhX.U8moC.oTLEH9ERToIcTqihyAdWjh1Yl/4aTcq",
+      "role": "admin",
+      "telepon": "081234567890",
+      "alamat": "Jl. Admin No. 1"
+    },
+    {
+      "id": 2,
+      "nama": "mhilmi Sa",
+      "email": "mhilmisa@gmail.com",
+      "password": "$2a$10$PfwzpFNFbkv.MTxhv4YLqOrob2A2aJDT9md.hdKoTf6qA98mOJXTa",
+      "role": "user",
+      "telepon": "0836363134",
+      "alamat": "kudus"
+    }
+  ],
+  "kategoris": [
+    {
+      "id": 1,
+      "nama": "Novel",
+      "slug": "novel",
+      "deskripsi": "Buku fiksi dan non-fiksi dalam bentuk cerita panjang"
+    },
+    {
+      "id": 2,
+      "nama": "Pendidikan",
+      "slug": "pendidikan",
+      "deskripsi": "Buku pelajaran, akademik, dan referensi ilmu pengetahuan"
+    },
+    {
+      "id": 3,
+      "nama": "Komik",
+      "slug": "komik",
+      "deskripsi": "Buku bergambar, manga, dan cerita bergambar"
+    }
+  ],
+  "bukus": [
+    {
+      "id": 3,
+      "judul": "One Piece",
+      "penulis": " Eiichiro Oda",
+      "penerbit": "Elex Media Komputindo",
+      "tahun_terbit": 2021,
+      "isbn": "9786230026195",
+      "deskripsi": "Cerita dalam komik ini mengandung materi yang diperuntukan untuk pembaca remaja dewasa. Tidak dianjurkan untuk dibaca anak-anak di bawah umur.",
+      "harga": 25000,
+      "stok": 40,
+      "gambar": "buku-0db2d1e1ef7716dd.jpg",
+      "kategori_id": 3
+    },
+    {
+      "id": 4,
+      "judul": "Doraemon  ",
+      "penulis": "Fujiko Fujio  ",
+      "penerbit": "Elex Media Komputindo",
+      "tahun_terbit": 2023,
+      "isbn": "9789792789133 ",
+      "deskripsi": " Bercerita tentang kehidupan sehari-hari Nobita, seorang anak yang sering mendapat nilai buruk, yang dibantu oleh robot kucing dari abad ke-22 bernama Doraemon.",
+      "harga": 30000,
+      "stok": 60,
+      "gambar": "buku-68a44318836bef1a.jpg",
+      "kategori_id": 3
+    },
+    {
+      "id": 5,
+      "judul": "Kagura Bachi Volume 1 Manga Comic Japanese Ver.",
+      "penulis": "takeru Hogazono",
+      "penerbit": "Elex Media",
+      "tahun_terbit": 2000,
+      "isbn": "13: 978-4-08-883819-9",
+      "deskripsi": "Deskripsi Produk Produk ini adalah narasi menarik yang menceritakan kisah seorang anak laki-laki bernama Chihiro yang bermimpi menjadi seorang pandai besi",
+      "harga": 25000,
+      "stok": 100,
+      "gambar": "buku-52d842f33bee64b2.jpg",
+      "kategori_id": 3
+    },
+    {
+      "id": 6,
+      "judul": "Naruto Vol. 1",
+      "penulis": "Masashi Kishimoto",
+      "penerbit": "Elex Media",
+      "tahun_terbit": 2001,
+      "isbn": "978-979-27-0002-2",
+      "deskripsi": "Kisah ninja muda Naruto Uzumaki yang ingin jadi Hokage.",
+      "harga": 25000,
+      "stok": 80,
+      "gambar": "buku-de94e1977e338d15.jpg",
+      "kategori_id": 3
+    },
+    {
+      "id": 7,
+      "judul": "Dilan 1990",
+      "penulis": "Pidi Baiq",
+      "penerbit": "Pastel Books",
+      "tahun_terbit": 2014,
+      "isbn": "978-602-1202-56-3",
+      "deskripsi": "Kisah cinta manis antara Dilan dan Milea di Bandung 1990.",
+      "harga": 69000,
+      "stok": 45,
+      "gambar": "default-book.jpg",
+      "kategori_id": 1
+    },
+    {
+      "id": 8,
+      "judul": "Algoritma dan Pemrograman",
+      "penulis": "Rinaldi Munir",
+      "penerbit": "Informatika",
+      "tahun_terbit": 2022,
+      "isbn": "978-602-9185-20-1",
+      "deskripsi": "Panduan dasar algoritma untuk mahasiswa informatika.",
+      "harga": 98000,
+      "stok": 35,
+      "gambar": "default-book.jpg",
+      "kategori_id": 2
+    },
+    {
+      "id": 9,
+      "judul": "Doraemon Vol. 1",
+      "penulis": "Fujiko F. Fujio",
+      "penerbit": "Elex Media",
+      "tahun_terbit": 1998,
+      "isbn": "978-979-27-0003-3",
+      "deskripsi": "Petualangan Doraemon dan Nobita dengan alat ajaib masa depan.",
+      "harga": 22000,
+      "stok": 90,
+      "gambar": "default-book.jpg",
+      "kategori_id": 3
+    },
+    {
+      "id": 10,
+      "judul": "Sabtu Bersama Bapak",
+      "penulis": "Adhitya Mulya",
+      "penerbit": "GagasMedia",
+      "tahun_terbit": 2014,
+      "isbn": "978-979-780-721-4",
+      "deskripsi": "Novel ini menceritakan tentang Gunawan Garnida yang mengetahui sisa hidupnya tidak lama lagi akibat penyakit.",
+      "harga": 30000,
+      "stok": 5,
+      "gambar": "buku-10b6b99662089fa0.jpg",
+      "kategori_id": 1
+    },
+    {
+      "id": 11,
+      "judul": "BUYA HAMKA",
+      "penulis": "Ahmad Fuadi",
+      "penerbit": "PT Falcon",
+      "tahun_terbit": 2021,
+      "isbn": "978-602-6714-73-2",
+      "deskripsi": "Novel ini menceritakan kehidupan Buya Hamka yang penuh perjuangan ekstrem.",
+      "harga": 150000,
+      "stok": 15,
+      "gambar": "buku-7298d9dfc5f0a38d.jpg",
+      "kategori_id": 1
+    }
+  ],
+  "keranjangs": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "buku_id": 1,
+      "jumlah": 1
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "buku_id": 2,
+      "jumlah": 1
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "buku_id": 3,
+      "jumlah": 1
+    }
+  ],
+  "pesanans": [],
+  "detail_pesanans": []
+}

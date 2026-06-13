@@ -1,0 +1,102 @@
+<%- include('../../partials/admin-header') %>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="fw-bold mb-0">Kelola Buku <span class="badge bg-secondary ms-2 fs-6"><%= count %></span></h4>
+    <a href="/admin/buku/tambah" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i>Tambah Buku</a>
+</div>
+
+<!-- Filter -->
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body p-3">
+        <form action="/admin/buku" method="GET" class="row g-2 align-items-end">
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="search" placeholder="Cari judul buku..." value="<%= search %>">
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" name="kategori">
+                    <option value="">Semua Kategori</option>
+                    <% kategoris.forEach(k => { %>
+                    <option value="<%= k.id %>" <%= selectedKategori == k.id ? 'selected' : '' %>><%= k.nama %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-search me-1"></i>Filter</button>
+                <a href="/admin/buku" class="btn btn-outline-secondary ms-1">Reset</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Tabel -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:50px">No</th>
+                        <th>Buku</th>
+                        <th>Kategori</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th class="text-center">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (bukus.length === 0) { %>
+                    <tr><td colspan="6" class="text-center py-4 text-muted">Tidak ada data buku</td></tr>
+                    <% } %>
+                    <% bukus.forEach((buku, idx) => { %>
+                    <tr>
+                        <td class="text-muted"><%= (currentPage - 1) * 10 + idx + 1 %></td>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="/images/<%= buku.gambar %>" alt="" class="rounded"
+                                     style="width:45px;height:58px;object-fit:cover" onerror="this.src='/images/default-book.jpg'">
+                                <div>
+                                    <div class="fw-medium"><%= buku.judul %></div>
+                                    <small class="text-muted"><%= buku.penulis %></small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-light text-dark border"><%= buku.kategori ? buku.kategori.nama : '-' %></span></td>
+                        <td class="text-primary fw-medium"><%- formatRupiah(buku.harga) %></td>
+                        <td>
+                            <span class="badge <%= buku.stok > 0 ? 'bg-success' : 'bg-danger' %>">
+                                <%= buku.stok %> unit
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <a href="/admin/buku/edit/<%= buku.id %>" class="btn btn-sm btn-outline-primary me-1">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <form action="/admin/buku/hapus/<%= buku.id %>" method="POST" class="d-inline"
+                                  onsubmit="return confirm('Hapus buku ini?')">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination -->
+<% if (totalPages > 1) { %>
+<nav class="mt-3">
+    <ul class="pagination justify-content-center">
+        <% for (let i = 1; i <= totalPages; i++) { %>
+        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+            <a class="page-link" href="/admin/buku?page=<%= i %>&search=<%= search %>&kategori=<%= selectedKategori %>"><%= i %></a>
+        </li>
+        <% } %>
+    </ul>
+</nav>
+<% } %>
+
+<%- include('../../partials/admin-footer') %>

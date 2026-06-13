@@ -1,0 +1,117 @@
+<%- include('../../partials/admin-header') %>
+
+<div class="d-flex align-items-center gap-3 mb-4">
+    <a href="/admin/pesanan" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-left"></i></a>
+    <h4 class="fw-bold mb-0">Detail Pesanan</h4>
+</div>
+
+<%
+const statusMap = { 'menunggu':'warning','diproses':'info','dikirim':'primary','selesai':'success','dibatalkan':'danger' };
+const statusLabel = { 'menunggu':'Menunggu','diproses':'Diproses','dikirim':'Dikirim','selesai':'Selesai','dibatalkan':'Dibatalkan' };
+%>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <!-- Info Pesanan -->
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h6 class="fw-bold mb-0"><%= pesanan.kode_pesanan %></h6>
+                <span class="badge bg-<%= statusMap[pesanan.status] %> fs-6 px-3 py-2">
+                    <%= statusLabel[pesanan.status] %>
+                </span>
+            </div>
+            <div class="card-body p-4">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <small class="text-muted fw-medium d-block mb-1">Customer</small>
+                        <div class="fw-semibold"><%= pesanan.user ? pesanan.user.nama : '-' %></div>
+                        <small class="text-muted"><%= pesanan.user ? pesanan.user.email : '' %></small>
+                    </div>
+                    <div class="col-sm-6">
+                        <small class="text-muted fw-medium d-block mb-1">Tanggal Pesanan</small>
+                        <div><%= formatTanggal(pesanan.createdAt) %></div>
+                    </div>
+                    <div class="col-12">
+                        <small class="text-muted fw-medium d-block mb-1">Alamat Pengiriman</small>
+                        <div><%= pesanan.alamat_pengiriman %></div>
+                    </div>
+                    <% if (pesanan.catatan) { %>
+                    <div class="col-12">
+                        <small class="text-muted fw-medium d-block mb-1">Catatan</small>
+                        <div class="text-muted fst-italic"><%= pesanan.catatan %></div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produk Pesanan -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white py-3">
+                <h6 class="fw-bold mb-0">Daftar Produk</h6>
+            </div>
+            <div class="card-body p-0">
+                <% pesanan.details.forEach((d, idx) => { %>
+                <div class="d-flex align-items-center p-3 <%= idx < pesanan.details.length - 1 ? 'border-bottom' : '' %>">
+                    <img src="/images/<%= d.buku.gambar %>" alt="" class="rounded me-3"
+                         style="width:55px;height:70px;object-fit:cover" onerror="this.src='/images/default-book.jpg'">
+                    <div class="flex-grow-1">
+                        <div class="fw-semibold"><%= d.buku.judul %></div>
+                        <small class="text-muted"><%= d.buku.penulis %></small>
+                        <div class="text-muted small mt-1"><%= d.jumlah %> × <%- formatRupiah(d.harga_satuan) %></div>
+                    </div>
+                    <div class="fw-bold"><%- formatRupiah(d.subtotal) %></div>
+                </div>
+                <% }) %>
+                <div class="p-3 border-top bg-light d-flex justify-content-end">
+                    <div class="text-end">
+                        <div class="text-muted small">Total Pembayaran</div>
+                        <div class="fw-bold fs-5 text-primary"><%- formatRupiah(pesanan.total_harga) %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <!-- Update Status -->
+        <div class="card border-0 shadow-sm mb-3">
+            <div class="card-header bg-white py-3">
+                <h6 class="fw-bold mb-0"><i class="bi bi-arrow-repeat me-2"></i>Update Status</h6>
+            </div>
+            <div class="card-body p-4">
+                <form action="/admin/pesanan/<%= pesanan.id %>/status" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-medium">Status Pesanan</label>
+                        <select class="form-select" name="status">
+                            <option value="menunggu" <%= pesanan.status === 'menunggu' ? 'selected' : '' %>>Menunggu</option>
+                            <option value="diproses" <%= pesanan.status === 'diproses' ? 'selected' : '' %>>Diproses</option>
+                            <option value="dikirim" <%= pesanan.status === 'dikirim' ? 'selected' : '' %>>Dikirim</option>
+                            <option value="selesai" <%= pesanan.status === 'selesai' ? 'selected' : '' %>>Selesai</option>
+                            <option value="dibatalkan" <%= pesanan.status === 'dibatalkan' ? 'selected' : '' %>>Dibatalkan</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-save me-2"></i>Perbarui Status
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Hapus Pesanan -->
+        <div class="card border-0 shadow-sm border-danger">
+            <div class="card-body p-4">
+                <h6 class="fw-bold text-danger mb-2">Zona Berbahaya</h6>
+                <p class="small text-muted mb-3">Menghapus pesanan ini bersifat permanen dan tidak dapat dibatalkan.</p>
+                <form action="/admin/pesanan/<%= pesanan.id %>/hapus" method="POST"
+                      onsubmit="return confirm('Yakin hapus pesanan ini? Tindakan ini tidak dapat dibatalkan.')">
+                    <button type="submit" class="btn btn-outline-danger w-100">
+                        <i class="bi bi-trash me-2"></i>Hapus Pesanan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/admin-footer') %>
