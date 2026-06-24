@@ -4,26 +4,30 @@
 Aplikasi web toko buku online berbasis **Node.js** dan **Express.js** dengan penyimpanan data menggunakan file JSON. Dibangun sebagai proyek kelompok dengan fitur lengkap untuk pengelolaan buku, keranjang belanja, dan manajemen pesanan.
 
 ---
-
+1. Martinho xavier (202451224) Kelas D
+2. Farell Dyas Restu Pratama (202351113) Kelas D
+3. Muhamad Hilmi Saputra (202451085) D
+4. Muchamad Dio Vadel(202451084) Kelas D
+*(Farell Dyas Restu Pratama)* | *(202351113)* 
 ## Anggota Kelompok & Pembagian Tugas
 
 | No | Nama | NIM | Bagian |
 |----|------|-----|--------|
-| 1  | *(hilmi)* | *(085)* | Konfigurasi, Autentikasi & Middleware |
-| 2  | *(dio)* | *(084)* | Panel Admin (Buku, Kategori & Pesanan) |
-| 3  | *(martin)* | *(1111)* | Fitur User (Beranda, Keranjang, Checkout, Pesanan) |
-| 4  | *()* | *(078)* | Frontend, Views & Tampilan |
+| 1  | *(Muchamad Dio Vadel)* | *(202451084)* | Konfigurasi, Autentikasi & Middleware |
+| 2  | *(Muhamad Hilmi Saputral)* | *(202451085)*  | Panel Admin (Buku, Kategori & Pesanan) |
+| 3  | *(Farell Dyas Restu Pratama)* | *(202351113)* | Fitur User (Beranda, Keranjang, Checkout, Pesanan) |
+| 4  | *(Martinho xavier)* | *(202451224)* | Frontend, Views & Tampilan |
 
-### Anggota 1 — Konfigurasi, Autentikasi & Middleware
+### 1. Muchamad Dio Vadel — Konfigurasi, Autentikasi & Middleware
 File yang dikerjakan: `app.js`, `config/db.js`, `middleware/auth.js`, `routes/auth.js`, `controllers/authController.js`
 
-### Anggota 2 — Panel Admin
+### 2. Muhamad Hilmi Saputral — Panel Admin
 File yang dikerjakan: `routes/admin.js`, `controllers/adminController.js`, `views/admin/dashboard.ejs`, `views/admin/buku/`, `views/admin/kategori/index.ejs`, `views/admin/pesanan/`
 
-### Anggota 3 — Fitur User
+### 3 Farell Dyas Restu Pratama — Fitur User
 File yang dikerjakan: `routes/user.js`, `controllers/bukuController.js`, `views/user/checkout.ejs`, `views/user/detail-buku.ejs`, `data/db.json`
 
-### Anggota 4 — Frontend, Views & Tampilan
+### 4.Martinho xavier — Frontend, Views & Tampilan
 File yang dikerjakan: `views/partials/`, `views/auth/`, `views/error.ejs`, `views/user/` (sisa halaman), `public/`
 
 ---
