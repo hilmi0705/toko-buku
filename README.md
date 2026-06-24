@@ -4,11 +4,6 @@
 Aplikasi web toko buku online berbasis **Node.js** dan **Express.js** dengan penyimpanan data menggunakan file JSON. Dibangun sebagai proyek kelompok dengan fitur lengkap untuk pengelolaan buku, keranjang belanja, dan manajemen pesanan.
 
 ---
-1. Martinho xavier (202451224) Kelas D
-2. Farell Dyas Restu Pratama (202351113) Kelas D
-3. Muhamad Hilmi Saputra (202451085) D
-4. Muchamad Dio Vadel(202451084) Kelas D
-*(Farell Dyas Restu Pratama)* | *(202351113)* 
 ## Anggota Kelompok & Pembagian Tugas
 
 | No | Nama | NIM | Bagian |
