@@ -47,6 +47,41 @@ File yang dikerjakan: `views/partials/`, `views/auth/`, `views/error.ejs`, `view
 - **Kelola Pesanan** — lihat semua pesanan, filter by status, update status, hapus pesanan
 - **Proteksi Rute** — semua halaman `/admin/*` hanya bisa diakses role `admin`
 
+
+## Cara Menjalankan
+### Prasyarat
+Pastikan sudah terinstall:
+- [Node.js](https://nodejs.org/) versi 18 ke atas
+- npm (sudah ikut serta dengan Node.js)
+### Langkah 1 — Ekstrak Proyek
+bash
+unzip Dokumen_dari_Vadellll.zip
+cd tokobuku
+
+### Langkah 2 — Install Dependensi
+bash
+npm install
+
+### Langkah 3 — Konfigurasi Environment
+File .env sudah tersedia di dalam folder proyek. Isinya:
+env
+PORT=3000
+SESSION_SECRET=tokobuku_secret_2024
+
+### Langkah 4 — Jalankan Aplikasi
+bash
+# Mode development (server restart otomatis saat file diubah)
+npm run dev
+# Mode production
+npm start
+
+### Langkah 5 — Buka di Browser
+
+http://localhost:3000
+
+- Dashboard Admin: Buka http://localhost:3000/admin.
+
+
 clau
 ## Akun Default
 
