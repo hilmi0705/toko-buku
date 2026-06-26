@@ -48,32 +48,46 @@ File yang dikerjakan: `views/partials/`, `views/auth/`, `views/error.ejs`, `view
 - **Proteksi Rute** — semua halaman `/admin/*` hanya bisa diakses role `admin`
 
 
-## Cara Menjalankan
+## ⚙️ Cara Menjalankan
+
 ### Prasyarat
 Pastikan sudah terinstall:
 - [Node.js](https://nodejs.org/) versi 18 ke atas
 - npm (sudah ikut serta dengan Node.js)
+
 ### Langkah 1 — Ekstrak Proyek
-bash
-unzip Dokumen_dari_Vadellll.zip
+
+```
+git clone https://github.com/username/tokobuku.git
 cd tokobuku
+```
 
 ### Langkah 2 — Install Dependensi
-bash
+
+```
 npm install
+```
 
 ### Langkah 3 — Konfigurasi Environment
-File .env sudah tersedia di dalam folder proyek. Isinya:
-env
+
+File `.env` sudah tersedia di dalam folder proyek. Isinya:
+
+```env
 PORT=3000
 SESSION_SECRET=tokobuku_secret_2024
+```
+
+> Tidak perlu mengubah apa pun untuk menjalankan secara lokal.
 
 ### Langkah 4 — Jalankan Aplikasi
-bash
+
+```bash
 # Mode development (server restart otomatis saat file diubah)
 npm run dev
+
 # Mode production
 npm start
+```
 
 ### Langkah 5 — Buka di Browser
 
